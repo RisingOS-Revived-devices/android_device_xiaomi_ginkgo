@@ -36,11 +36,12 @@ PRODUCT_MODEL := Redmi Note 8/8T
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# Matrixx stuff
-MATRIXX_CHIPSET := Trinket
-MATRIXX_BATTERY := 4000mah
-MATRIXX_DISPLAY := 1080 x 2340
+RISING_MAINTAINER="Yeab"
 
-WITH_GMS := true
-MATRIXX_MAINTAINER := Yeab
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Trinket" \
+    RisingMaintainer="Yeab"
 
+
+PRODUCT_PACKAGES += \
+    LatinIMEGooglePrebuilt
