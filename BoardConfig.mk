@@ -140,6 +140,10 @@ override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
+# OTA package
+TARGET_OTA_ALLOW_NON_AB := true
+AB_OTA_UPDATER := false
+
 #Retrofit 
 PARTITIONS := system vendor
 
