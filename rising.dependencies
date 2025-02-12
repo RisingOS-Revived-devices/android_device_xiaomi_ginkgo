@@ -1,0 +1,38 @@
+[
+    {
+        "remote":       "github",
+        "repository":   "RisingOS-Revived-devices/android_kernel_xiaomi_ginkgo",
+        "target_path":  "kernel/xiaomi/ginkgo",
+        "branch":       "fifteen"
+    },
+    {
+        "remote":       "github",
+        "repository":   "RisingOS-Revived/proprietary_vendor_xiaomi_ginkgo",
+        "target_path":  "vendor/xiaomi/ginkgo",
+        "branch":       "fifteen"
+    },
+    { 
+        "remote"       : "github",
+        "repository"   : "ZorEl212/android_vendor_xiaomi_miuicamera",
+        "target_path"  : "vendor/xiaomi/miuicamera",
+        "branch"       : "anx-ginkgo"
+    },
+    { 
+        "remote"       : "github",
+        "repository"   : "ZorEl212/android_hardware_interfaces",
+        "target_path"  : "hardware/interfaces",
+        "branch"       : "15.0"
+    },
+    {
+        "remote":       "github",
+        "repository":   "ZorEl212/vendor_sony_dolby",
+        "target_path":  "vendor/sony/dolby",
+        "branch":       "v1.0_sonyDAXUI"
+    },
+    {
+        "remote":       "github",
+        "repository":   "crdroidandroid/android_hardware_xiaomi",
+        "target_path":  "hardware/xiaomi",
+        "branch":       "15.0"
+    }
+]
