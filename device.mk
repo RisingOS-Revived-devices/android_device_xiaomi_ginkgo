@@ -199,6 +199,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
