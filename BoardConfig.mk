@@ -59,6 +59,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
+TARGET_USES_MIUI_CAMERA := true
 
 ifeq ($(WITH_GMS),true)
 #Compression
