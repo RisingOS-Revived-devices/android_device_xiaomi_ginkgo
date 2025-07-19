@@ -114,16 +114,41 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_SEPARATED_DTBO := true
 
-TARGET_KERNEL_SOURCE := kernel/xiaomi/ginkgo
-TARGET_KERNEL_CONFIG := vendor/ginkgo-perf_defconfig
+# Kernel - prebuilt
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifdef TARGET_FORCE_PREBUILT_KERNEL
 
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := LD=ld.lld  LLVM=1 LLVM_IAS=1
-TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+    TARGET_KERNEL_VERSION := 4.14
+    KERNEL_PATH := $(DEVICE_PATH)-kernel
+    TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
+    TARGET_KERNEL_CONFIG := vendor/ginkgo.config
+    LOCAL_KERNEL := $(KERNEL_PATH)/Image.gz-dtb
 
-# Kernel Clang Flags
-KERNEL_CC := CC=clang
-override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
+    PRODUCT_COPY_FILES += \
+        $(LOCAL_KERNEL):kernel
+
+    TARGET_NO_KERNEL_OVERRIDE := true
+    TARGET_PREBUILT_KERNEL := $(LOCAL_KERNEL)
+    BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+
+    TARGET_KERNEL_ARCH := arm64
+    TARGET_KERNEL_HEADER_ARCH := arm64
+
+else
+
+    TARGET_KERNEL_SOURCE := kernel/xiaomi/ginkgo
+    TARGET_KERNEL_CONFIG := vendor/ginkgo-perf_defconfig
+
+    TARGET_KERNEL_CLANG_COMPILE := true
+    TARGET_KERNEL_ADDITIONAL_FLAGS := \
+        LD=ld.lld LLVM=1 LLVM_IAS=1 \
+        HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+
+    KERNEL_CC := CC=clang
+    override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
+
+endif
+
 
 # Media 
 TARGET_USES_ION := true
