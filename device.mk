@@ -131,6 +131,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.qcom \
     gralloc.qcom \
     libdisplayconfig.qti \
+    libdisplayconfig.system.qti \
     libtinyxml \
     libtinyxml2 \
     libvulkan \
